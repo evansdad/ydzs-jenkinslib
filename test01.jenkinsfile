@@ -1,0 +1,16 @@
+﻿pipeline {
+    //指定运行此流水线的节点
+    agent { node { label "vs2019"}}
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+				bat """
+				cd /d "D:/jenkins"
+				call buildall.bat
+				"""
+            }
+        }
+    }
+}
